@@ -1,0 +1,40 @@
+
+	FastqDir /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/ Sample 52
+	[Cutsite=pls3]
+				Repair efficiency for pls3 is 0.06 (575 readpairs with repair versus 9482 readpairs in total)
+
+				There are 559 readpairs with FULL HDR (on a total of 575 repairs)
+				There are 4 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 575 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: TTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+
+				There are 2 readpairs with PARTIAL HDR: GTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+
+				There are 7 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTAAATATTGGAGCA (on a total of 575 repairs)
+
+
+	FastqDir /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/ Sample 53
+	[Cutsite=pls3]
+				Repair efficiency for pls3 is 0.05 (495 readpairs with repair versus 9056 readpairs in total)
+
+				There are 360 readpairs with FULL HDR (on a total of 495 repairs)
+				There are 1 readpairs with PARTIAL HDR: ATGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: TTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTTAATATTGGAGCA (on a total of 495 repairs)
+
+				There are 10 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+
+				There are 112 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTCAATATTGGAGCA (on a total of 495 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 495 repairs)
+
+				There are 8 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
+

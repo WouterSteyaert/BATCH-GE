@@ -1,0 +1,10 @@
+
+	FastqDir /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_1/Fastq/ Sample 4
+	[Cutsite=pls3]
+				Repair efficiency for pls3 is 0.01 (6 readpairs with repair versus 373 readpairs in total)
+
+				There are 4 readpairs with FULL HDR (on a total of 6 repairs)
+				There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 6 repairs)
+
+				There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 6 repairs)
+
