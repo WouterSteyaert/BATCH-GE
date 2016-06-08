@@ -1,6 +1,6 @@
-################################################################################
-###								Installation notes							 ###	
-################################################################################
+####################################################################
+###						Installation notes						 ###	
+####################################################################
 
 To install BATCH-GE, open a terminal on a Linux system and follow the underneath instructions:
 
@@ -30,9 +30,9 @@ This will download danRer7 from the UCSC ftp site.
 
 This script will create a sequence dictionary and an index necessary in the further analysis.
 
-################################################################################
-###	 							    EXAMPLES								 ###	
-################################################################################
+####################################################################
+###	 					    EXAMPLES							 ###	
+####################################################################
 
 Test the software by entering ‘perl BATCH-GE.pl --ExperimentFile PREFIX/BATCH-GE/_EXAMPLE_1/ExperimentFile.csv’.
 Replace PREFIX by the folder in which you have cloned BATCH-GE. 
@@ -54,15 +54,15 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
                         AnalyzeSAM
         [Cutsite=pls3]
 
-                                Mutagenesis efficiency for pls3 is 0.11 (42 readpairs with indel(s) versus 331 readpairs without indel(s))
-                                Repair efficiency for pls3 is 0.01 (6 readpairs with repair versus 373 readpairs in total)
+            Mutagenesis efficiency for pls3 is 0.11 (42 readpairs with indel(s) versus 331 readpairs without indel(s))
+			Repair efficiency for pls3 is 0.01 (6 readpairs with repair versus 373 readpairs in total)
 
-                                There are 4 readpairs with FULL HDR (on a total of 6 repairs)
-                                There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 6 repairs)
+            There are 4 readpairs with FULL HDR (on a total of 6 repairs)
+            There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 6 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 6 repairs)
+            There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 6 repairs)
 
-                        Clean up Folders
+            Clean up Folders
  
 Replace _EXAMPLE_1 by _EXAMPLE_2 to run the second example. 
 The screen output is:
@@ -82,23 +82,23 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
                         AnalyzeSAM
         [Cutsite=pls3]
 
-                                Mutagenesis efficiency for pls3 is 0.17 (1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
-                                Repair efficiency for pls3 is 0.06 (575 readpairs with repair versus 9482 readpairs in total)
+            Mutagenesis efficiency for pls3 is 0.17 (1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
+            Repair efficiency for pls3 is 0.06 (575 readpairs with repair versus 9482 readpairs in total)
 
-                                There are 559 readpairs with FULL HDR (on a total of 575 repairs)
-                                There are 7 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+            There are 559 readpairs with FULL HDR (on a total of 575 repairs)
+            There are 7 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+            There are 1 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTAAATATTGGAGCA (on a total of 575 repairs)
+            There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTAAATATTGGAGCA (on a total of 575 repairs)
 
-                                There are 4 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 575 repairs)
+            There are 4 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 575 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: TTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+            There are 1 readpairs with PARTIAL HDR: TTGCCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
 
-                                There are 2 readpairs with PARTIAL HDR: GTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
+            There are 2 readpairs with PARTIAL HDR: GTGTCACGTGGTGAATATTGGAGCA (on a total of 575 repairs)
 
-                        Clean up Folders
+            Clean up Folders
 
         Sample number 53 from /home/wsteyaer/BATCH-GE/_EXAMPLE_2/Fastq/ is being analyzed ...
         [Genome=danRer7]
@@ -111,24 +111,24 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
                         AnalyzeSAM
         [Cutsite=pls3]
 
-                                Mutagenesis efficiency for pls3 is 0.22 (2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
-                                Repair efficiency for pls3 is 0.05 (495 readpairs with repair versus 9056 readpairs in total)
+            Mutagenesis efficiency for pls3 is 0.22 (2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
+            Repair efficiency for pls3 is 0.05 (495 readpairs with repair versus 9056 readpairs in total)
 
-                                There are 360 readpairs with FULL HDR (on a total of 495 repairs)
-                                There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 495 repairs)
+            There are 360 readpairs with FULL HDR (on a total of 495 repairs)
+            There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 495 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTCAATATTGGAGCA (on a total of 495 repairs)
+            There are 1 readpairs with PARTIAL HDR: CTGTCACGTGGTCAATATTGGAGCA (on a total of 495 repairs)
 
-                                There are 112 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+            There are 112 readpairs with PARTIAL HDR: CTGTCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTTAATATTGGAGCA (on a total of 495 repairs)
+            There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTTAATATTGGAGCA (on a total of 495 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: ATGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+            There are 1 readpairs with PARTIAL HDR: ATGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
 
-                                There are 10 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
+            There are 10 readpairs with PARTIAL HDR: CTGCCACGTGGTGAATATTGGAGCA (on a total of 495 repairs)
 
-                                There are 8 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
+            There are 8 readpairs with PARTIAL HDR: CTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
 
-                                There are 1 readpairs with PARTIAL HDR: TTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
+            There are 1 readpairs with PARTIAL HDR: TTGTCACGTGGTCAACATTGGAGCA (on a total of 495 repairs)
 
-                        Clean up Folders
+            Clean up Folders
