@@ -1,5 +1,5 @@
 ####################################################################
-###						Installation notes						 ###	
+###						Installation notes						 ###
 ####################################################################
 
 To install BATCH-GE, open a terminal on a Linux system and follow the underneath instructions:
@@ -31,7 +31,7 @@ This will download danRer7 from the UCSC ftp site.
 This script will create a sequence dictionary and an index necessary in the further analysis.
 
 ####################################################################
-###	 					    EXAMPLES							 ###	
+###	 					    EXAMPLES							 ###
 ####################################################################
 
 Test the software by entering ‘perl BATCH-GE.pl --ExperimentFile PREFIX/BATCH-GE/_EXAMPLE_1/ExperimentFile.csv’.
@@ -54,8 +54,10 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
                         AnalyzeSAM
         [Cutsite=pls3]
 
-            Mutagenesis efficiency for pls3 is 0.11 (42 readpairs with indel(s) versus 331 readpairs without indel(s))
-			Repair efficiency for pls3 is 0.01 (6 readpairs with repair versus 373 readpairs in total)
+            Mutagenesis efficiency for pls3 is 0.11
+            (42 readpairs with indel(s) versus 331 readpairs without indel(s))
+            Repair efficiency for pls3 is 0.01 
+            (6 readpairs with repair versus 373 readpairs in total)
 
             There are 4 readpairs with FULL HDR (on a total of 6 repairs)
             There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 6 repairs)
