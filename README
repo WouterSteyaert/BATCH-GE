@@ -1,6 +1,6 @@
-####################################################################
-###						Installation notes						 ###
-####################################################################
+###########################################################
+###					Installation notes	  			    ###
+###########################################################
 
 To install BATCH-GE, open a terminal on a Linux system and follow the underneath instructions:
 
@@ -30,9 +30,9 @@ This will download danRer7 from the UCSC ftp site.
 
 This script will create a sequence dictionary and an index necessary in the further analysis.
 
-####################################################################
-###	 					    EXAMPLES							 ###
-####################################################################
+###########################################################
+###	 				     EXAMPLES						###
+###########################################################
 
 Test the software by entering ‘perl BATCH-GE.pl --ExperimentFile PREFIX/BATCH-GE/_EXAMPLE_1/ExperimentFile.csv’.
 Replace PREFIX by the folder in which you have cloned BATCH-GE. 
