@@ -84,8 +84,10 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
         [Cutsite=pls3]
 
 
-	Mutagenesis efficiency for pls3 is 0.1788 (1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
-	Repair efficiency for pls3 is 0.0606 (575 readpairs with repair versus 9482 readpairs in total)
+	Mutagenesis efficiency for pls3 is 0.1788 
+	(1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
+	Repair efficiency for pls3 is 0.0606 
+	(575 readpairs with repair versus 9482 readpairs in total)
 
 
             There are 559 readpairs with FULL HDR (on a total of 575 repairs)
@@ -114,8 +116,10 @@ CRISPR-CAS MUTAGENESIS EFFICIENCY CALCULATOR
                         AnalyzeSAM
         [Cutsite=pls3]
 
-	Mutagenesis efficiency for pls3 is 0.2231 (2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
-	Repair efficiency for pls3 is 0.0546 (495 readpairs with repair versus 9056 readpairs in total)
+	Mutagenesis efficiency for pls3 is 0.2231 
+	(2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
+	Repair efficiency for pls3 is 0.0546 
+	(495 readpairs with repair versus 9056 readpairs in total)
 
             There are 360 readpairs with FULL HDR (on a total of 495 repairs)
             There are 1 readpairs with PARTIAL HDR: GTGCCACGTGGTGAACATTGGAGCA (on a total of 495 repairs)

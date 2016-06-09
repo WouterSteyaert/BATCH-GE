@@ -87,6 +87,7 @@ sub ChangePrefix {
 		foreach my $EXP_LINE (@EXP_FILE){
 			
 			$EXP_LINE =~ s/\n//g;
+			$EXP_LINE =~ s/;$//g;
 		
 			if ($Line_Nr == 0){
 				
