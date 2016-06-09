@@ -25,7 +25,7 @@
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 169476 reads in 17.568 CPU sec, 8.348 real sec
+[M::mem_process_seqs] Processed 169476 reads in 27.342 CPU sec, 13.491 real sec
 [M::process] read 167396 sequences (20000010 bp)...
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (203, 83395, 9, 207)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
@@ -46,7 +46,7 @@
 [M::mem_pestat] low and high boundaries for proper pairs: (1, 294)
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 168854 reads in 16.227 CPU sec, 7.871 real sec
+[M::mem_process_seqs] Processed 168854 reads in 26.742 CPU sec, 13.068 real sec
 [M::process] read 151726 sequences (18306139 bp)...
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (250, 82495, 11, 204)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
@@ -72,7 +72,7 @@
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 167396 reads in 17.021 CPU sec, 8.302 real sec
+[M::mem_process_seqs] Processed 167396 reads in 26.966 CPU sec, 13.201 real sec
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (215, 74931, 8, 200)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
 [M::mem_pestat] (25, 50, 75) percentile: (55, 87, 120)
@@ -92,10 +92,10 @@
 [M::mem_pestat] low and high boundaries for proper pairs: (1, 309)
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 151726 reads in 14.688 CPU sec, 7.316 real sec
+[M::mem_process_seqs] Processed 151726 reads in 25.258 CPU sec, 12.662 real sec
 [main] Version: 0.7.13-r1126
-[main] CMD: ./bwa mem -t 2 -M /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/genomes//danRer7/danRer7.fa /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz
-[main] Real time: 35.884 sec; CPU: 69.128 sec
+[main] CMD: ./bwa mem -t 2 -M /home/akboel/BATCH-GE/genomes//danRer7/danRer7.fa /home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz /home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz
+[main] Real time: 76.053 sec; CPU: 110.343 sec
 [M::bwa_idx_load_from_disk] read 0 ALT contigs
 [M::process] read 167180 sequences (20000126 bp)...
 [M::process] read 166094 sequences (20000160 bp)...
@@ -123,7 +123,7 @@
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 167180 reads in 17.559 CPU sec, 8.452 real sec
+[M::mem_process_seqs] Processed 167180 reads in 29.310 CPU sec, 14.461 real sec
 [M::process] read 164036 sequences (20000126 bp)...
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (240, 81614, 24, 215)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
@@ -149,7 +149,7 @@
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 166094 reads in 17.070 CPU sec, 8.307 real sec
+[M::mem_process_seqs] Processed 166094 reads in 29.186 CPU sec, 14.429 real sec
 [M::process] read 51434 sequences (6320377 bp)...
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (243, 80624, 25, 242)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
@@ -175,7 +175,7 @@
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 164036 reads in 17.134 CPU sec, 8.473 real sec
+[M::mem_process_seqs] Processed 164036 reads in 28.346 CPU sec, 14.043 real sec
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (74, 25232, 9, 93)
 [M::mem_pestat] analyzing insert size distribution for orientation FF...
 [M::mem_pestat] (25, 50, 75) percentile: (59, 88, 124)
@@ -195,7 +195,7 @@
 [M::mem_pestat] low and high boundaries for proper pairs: (1, 377)
 [M::mem_pestat] skip orientation FF
 [M::mem_pestat] skip orientation RR
-[M::mem_process_seqs] Processed 51434 reads in 5.661 CPU sec, 2.794 real sec
+[M::mem_process_seqs] Processed 51434 reads in 9.845 CPU sec, 4.899 real sec
 [main] Version: 0.7.13-r1126
-[main] CMD: ./bwa mem -t 2 -M /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/genomes//danRer7/danRer7.fa /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz
-[main] Real time: 32.178 sec; CPU: 61.057 sec
+[main] CMD: ./bwa mem -t 2 -M /home/akboel/BATCH-GE/genomes//danRer7/danRer7.fa /home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz /home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz
+[main] Real time: 71.439 sec; CPU: 100.754 sec

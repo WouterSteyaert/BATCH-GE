@@ -1,16 +1,16 @@
 
-	Sample number 52 from /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/ is being analyzed ...
+	Sample number 52 from /home/akboel/BATCH-GE/_EXAMPLE_2/Fastq/ is being analyzed ...
 	[Genome=danRer7]
 	[Cutsite=pls3]
 
-				Mutagenesis efficiency for pls3 is 0.17 (1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
-				Repair efficiency for pls3 is 0.06 (575 readpairs with repair versus 9482 readpairs in total)
+				Mutagenesis efficiency for pls3 is 0.1788 (1696 readpairs with indel(s) versus 7786 readpairs without indel(s))
+				Repair efficiency for pls3 is 0.0606 (575 readpairs with repair versus 9482 readpairs in total)
 
 
-	Sample number 53 from /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/ is being analyzed ...
+	Sample number 53 from /home/akboel/BATCH-GE/_EXAMPLE_2/Fastq/ is being analyzed ...
 	[Genome=danRer7]
 	[Cutsite=pls3]
 
-				Mutagenesis efficiency for pls3 is 0.22 (2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
-				Repair efficiency for pls3 is 0.05 (495 readpairs with repair versus 9056 readpairs in total)
+				Mutagenesis efficiency for pls3 is 0.2231 (2021 readpairs with indel(s) versus 7035 readpairs without indel(s))
+				Repair efficiency for pls3 is 0.0546 (495 readpairs with repair versus 9056 readpairs in total)
 

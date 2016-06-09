@@ -1,60 +1,60 @@
-[Tue Jun 07 16:05:20 CEST 2016] picard.sam.SortSam INPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.bam OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.bam SORT_ORDER=coordinate    VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:05:20 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:05:27	SortSam	Finished reading inputs, merging and writing to output now.
-[Tue Jun 07 16:05:32 CEST 2016] picard.sam.SortSam done. Elapsed time: 0.21 minutes.
-Runtime.totalMemory()=1137180672
-[Tue Jun 07 16:05:33 CEST 2016] picard.sam.markduplicates.MarkDuplicates INPUT=[/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.bam] OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.bam METRICS_FILE=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.metrics REMOVE_DUPLICATES=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag ASSUME_SORTED=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:05:33 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:05:33	MarkDuplicates	Start of doWork freeMemory: 250304976; totalMemory: 253231104; maxMemory: 3817865216
-INFO	2016-06-07 16:05:33	MarkDuplicates	Reading input file and constructing read end information.
-INFO	2016-06-07 16:05:33	MarkDuplicates	Will retain up to 14684096 data points before spilling to disk.
-INFO	2016-06-07 16:05:39	MarkDuplicates	Read 522796 records. 5432 pairs never matched.
-INFO	2016-06-07 16:05:40	MarkDuplicates	After buildSortedReadEndLists freeMemory: 379937128; totalMemory: 558891008; maxMemory: 3817865216
-INFO	2016-06-07 16:05:40	MarkDuplicates	Will retain up to 119308288 duplicate indices before spilling to disk.
-INFO	2016-06-07 16:05:40	MarkDuplicates	Traversing read pair information and detecting duplicates.
-INFO	2016-06-07 16:05:41	MarkDuplicates	Traversing fragment information and detecting duplicates.
-INFO	2016-06-07 16:05:41	MarkDuplicates	Sorting list of duplicate records.
-INFO	2016-06-07 16:05:41	MarkDuplicates	After generateDuplicateIndexes freeMemory: 573020888; totalMemory: 1534066688; maxMemory: 3817865216
-INFO	2016-06-07 16:05:41	MarkDuplicates	Marking 466724 records as duplicates.
-INFO	2016-06-07 16:05:41	MarkDuplicates	Found 100 optical duplicate clusters.
-INFO	2016-06-07 16:05:41	MarkDuplicates	Reads are assumed to be ordered by: coordinate
-INFO	2016-06-07 16:05:44	MarkDuplicates	Before output close freeMemory: 1575199448; totalMemory: 1583874048; maxMemory: 3817865216
-INFO	2016-06-07 16:05:44	MarkDuplicates	After output close freeMemory: 1521196832; totalMemory: 1529872384; maxMemory: 3817865216
-[Tue Jun 07 16:05:44 CEST 2016] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.19 minutes.
-Runtime.totalMemory()=1529872384
-[Tue Jun 07 16:05:45 CEST 2016] picard.sam.AddOrReplaceReadGroups INPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.bam OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.rg.bam SORT_ORDER=coordinate RGLB=Nextera RGPL=Illumina RGPU=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/~52 RGSM=Pool-52-Run133_S52_L001_R1_001_pls3    RGID=1 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:05:45 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:05:45	AddOrReplaceReadGroups	Created read group ID=1 PL=Illumina LB=Nextera SM=Pool-52-Run133_S52_L001_R1_001_pls3
+[Thu Jun 09 10:46:39 CEST 2016] picard.sam.SortSam INPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.bam OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.bam SORT_ORDER=coordinate    VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:46:39 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:46:48	SortSam	Finished reading inputs, merging and writing to output now.
+[Thu Jun 09 10:46:56 CEST 2016] picard.sam.SortSam done. Elapsed time: 0.29 minutes.
+Runtime.totalMemory()=904396800
+[Thu Jun 09 10:47:00 CEST 2016] picard.sam.markduplicates.MarkDuplicates INPUT=[/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.bam] OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.bam METRICS_FILE=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.metrics REMOVE_DUPLICATES=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag ASSUME_SORTED=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:47:00 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:47:00	MarkDuplicates	Start of doWork freeMemory: 250315856; totalMemory: 253231104; maxMemory: 3817865216
+INFO	2016-06-09 10:47:00	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2016-06-09 10:47:00	MarkDuplicates	Will retain up to 14684096 data points before spilling to disk.
+INFO	2016-06-09 10:47:05	MarkDuplicates	Read 522796 records. 5432 pairs never matched.
+INFO	2016-06-09 10:47:06	MarkDuplicates	After buildSortedReadEndLists freeMemory: 501309376; totalMemory: 683147264; maxMemory: 3817865216
+INFO	2016-06-09 10:47:06	MarkDuplicates	Will retain up to 119308288 duplicate indices before spilling to disk.
+INFO	2016-06-09 10:47:06	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2016-06-09 10:47:07	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2016-06-09 10:47:07	MarkDuplicates	Sorting list of duplicate records.
+INFO	2016-06-09 10:47:07	MarkDuplicates	After generateDuplicateIndexes freeMemory: 676343968; totalMemory: 1639972864; maxMemory: 3817865216
+INFO	2016-06-09 10:47:07	MarkDuplicates	Marking 466724 records as duplicates.
+INFO	2016-06-09 10:47:07	MarkDuplicates	Found 100 optical duplicate clusters.
+INFO	2016-06-09 10:47:07	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2016-06-09 10:47:11	MarkDuplicates	Before output close freeMemory: 1709510072; totalMemory: 1721237504; maxMemory: 3817865216
+INFO	2016-06-09 10:47:11	MarkDuplicates	After output close freeMemory: 1665993216; totalMemory: 1677721600; maxMemory: 3817865216
+[Thu Jun 09 10:47:11 CEST 2016] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.20 minutes.
+Runtime.totalMemory()=1677721600
+[Thu Jun 09 10:47:14 CEST 2016] picard.sam.AddOrReplaceReadGroups INPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.bam OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-52-Run133_S52_L001_R1_001_pls3.sorted.remdup.rg.bam SORT_ORDER=coordinate RGLB=Nextera RGPL=Illumina RGPU=/home/akboel/BATCH-GE/_EXAMPLE_2/Fastq/~52 RGSM=Pool-52-Run133_S52_L001_R1_001_pls3    RGID=1 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:47:14 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:47:15	AddOrReplaceReadGroups	Created read group ID=1 PL=Illumina LB=Nextera SM=Pool-52-Run133_S52_L001_R1_001_pls3
 
-[Tue Jun 07 16:05:47 CEST 2016] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.03 minutes.
+[Thu Jun 09 10:47:17 CEST 2016] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.04 minutes.
 Runtime.totalMemory()=253231104
-[Tue Jun 07 16:09:20 CEST 2016] picard.sam.SortSam INPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.bam OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.bam SORT_ORDER=coordinate    VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:09:20 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:09:25	SortSam	Finished reading inputs, merging and writing to output now.
-[Tue Jun 07 16:09:29 CEST 2016] picard.sam.SortSam done. Elapsed time: 0.15 minutes.
-Runtime.totalMemory()=959447040
-[Tue Jun 07 16:09:30 CEST 2016] picard.sam.markduplicates.MarkDuplicates INPUT=[/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.bam] OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.bam METRICS_FILE=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.metrics REMOVE_DUPLICATES=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag ASSUME_SORTED=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:09:30 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:09:30	MarkDuplicates	Start of doWork freeMemory: 250305024; totalMemory: 253231104; maxMemory: 3817865216
-INFO	2016-06-07 16:09:30	MarkDuplicates	Reading input file and constructing read end information.
-INFO	2016-06-07 16:09:30	MarkDuplicates	Will retain up to 14684096 data points before spilling to disk.
-INFO	2016-06-07 16:09:36	MarkDuplicates	Read 442188 records. 5978 pairs never matched.
-INFO	2016-06-07 16:09:36	MarkDuplicates	After buildSortedReadEndLists freeMemory: 373539936; totalMemory: 543686656; maxMemory: 3817865216
-INFO	2016-06-07 16:09:36	MarkDuplicates	Will retain up to 119308288 duplicate indices before spilling to disk.
-INFO	2016-06-07 16:09:37	MarkDuplicates	Traversing read pair information and detecting duplicates.
-INFO	2016-06-07 16:09:37	MarkDuplicates	Traversing fragment information and detecting duplicates.
-INFO	2016-06-07 16:09:37	MarkDuplicates	Sorting list of duplicate records.
-INFO	2016-06-07 16:09:37	MarkDuplicates	After generateDuplicateIndexes freeMemory: 541960064; totalMemory: 1502609408; maxMemory: 3817865216
-INFO	2016-06-07 16:09:37	MarkDuplicates	Marking 386653 records as duplicates.
-INFO	2016-06-07 16:09:37	MarkDuplicates	Found 65 optical duplicate clusters.
-INFO	2016-06-07 16:09:38	MarkDuplicates	Reads are assumed to be ordered by: coordinate
-INFO	2016-06-07 16:09:40	MarkDuplicates	Before output close freeMemory: 1472893832; totalMemory: 1480589312; maxMemory: 3817865216
-INFO	2016-06-07 16:09:40	MarkDuplicates	After output close freeMemory: 1515360208; totalMemory: 1523056640; maxMemory: 3817865216
-[Tue Jun 07 16:09:40 CEST 2016] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.17 minutes.
-Runtime.totalMemory()=1523056640
-[Tue Jun 07 16:09:41 CEST 2016] picard.sam.AddOrReplaceReadGroups INPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.bam OUTPUT=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.rg.bam SORT_ORDER=coordinate RGLB=Nextera RGPL=Illumina RGPU=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/~53 RGSM=Pool-53-Run133_S53_L001_R1_001_pls3    RGID=1 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
-[Tue Jun 07 16:09:41 CEST 2016] Executing as wsteyaer@login on Linux 3.13.0-76-generic amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
-INFO	2016-06-07 16:09:41	AddOrReplaceReadGroups	Created read group ID=1 PL=Illumina LB=Nextera SM=Pool-53-Run133_S53_L001_R1_001_pls3
+[Thu Jun 09 10:50:34 CEST 2016] picard.sam.SortSam INPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.bam OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.bam SORT_ORDER=coordinate    VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:50:34 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:50:40	SortSam	Finished reading inputs, merging and writing to output now.
+[Thu Jun 09 10:50:48 CEST 2016] picard.sam.SortSam done. Elapsed time: 0.22 minutes.
+Runtime.totalMemory()=770703360
+[Thu Jun 09 10:50:51 CEST 2016] picard.sam.markduplicates.MarkDuplicates INPUT=[/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.bam] OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.bam METRICS_FILE=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.metrics REMOVE_DUPLICATES=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 REMOVE_SEQUENCING_DUPLICATES=false TAGGING_POLICY=DontTag ASSUME_SORTED=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:50:51 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:50:51	MarkDuplicates	Start of doWork freeMemory: 250315856; totalMemory: 253231104; maxMemory: 3817865216
+INFO	2016-06-09 10:50:51	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2016-06-09 10:50:51	MarkDuplicates	Will retain up to 14684096 data points before spilling to disk.
+INFO	2016-06-09 10:50:56	MarkDuplicates	Read 442188 records. 5978 pairs never matched.
+INFO	2016-06-09 10:50:56	MarkDuplicates	After buildSortedReadEndLists freeMemory: 387097720; totalMemory: 557842432; maxMemory: 3817865216
+INFO	2016-06-09 10:50:56	MarkDuplicates	Will retain up to 119308288 duplicate indices before spilling to disk.
+INFO	2016-06-09 10:50:57	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2016-06-09 10:50:57	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2016-06-09 10:50:57	MarkDuplicates	Sorting list of duplicate records.
+INFO	2016-06-09 10:50:58	MarkDuplicates	After generateDuplicateIndexes freeMemory: 563906456; totalMemory: 1525153792; maxMemory: 3817865216
+INFO	2016-06-09 10:50:58	MarkDuplicates	Marking 386653 records as duplicates.
+INFO	2016-06-09 10:50:58	MarkDuplicates	Found 65 optical duplicate clusters.
+INFO	2016-06-09 10:50:58	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2016-06-09 10:51:01	MarkDuplicates	Before output close freeMemory: 1616985312; totalMemory: 1626865664; maxMemory: 3817865216
+INFO	2016-06-09 10:51:01	MarkDuplicates	After output close freeMemory: 1576614184; totalMemory: 1586495488; maxMemory: 3817865216
+[Thu Jun 09 10:51:01 CEST 2016] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.17 minutes.
+Runtime.totalMemory()=1586495488
+[Thu Jun 09 10:51:04 CEST 2016] picard.sam.AddOrReplaceReadGroups INPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.bam OUTPUT=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2/5_CutSiteReads/Pool-53-Run133_S53_L001_R1_001_pls3.sorted.remdup.rg.bam SORT_ORDER=coordinate RGLB=Nextera RGPL=Illumina RGPU=/home/akboel/BATCH-GE/_EXAMPLE_2/Fastq/~53 RGSM=Pool-53-Run133_S53_L001_R1_001_pls3    RGID=1 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jun 09 10:51:04 CEST 2016] Executing as akboel@research on Linux 3.2.0-94-virtual amd64; Java HotSpot(TM) 64-Bit Server VM 1.8.0_91-b14; Picard version: 2.3.0(9a00c87b7ffdb01cfb5a0d6e76556146196babb8_1463071327) IntelDeflater
+INFO	2016-06-09 10:51:05	AddOrReplaceReadGroups	Created read group ID=1 PL=Illumina LB=Nextera SM=Pool-53-Run133_S53_L001_R1_001_pls3
 
-[Tue Jun 07 16:09:43 CEST 2016] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.04 minutes.
+[Thu Jun 09 10:51:07 CEST 2016] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.04 minutes.
 Runtime.totalMemory()=253231104

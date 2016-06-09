@@ -9,7 +9,7 @@
 [M::mem_pestat] low and high boundaries for proper pairs: (1, 501)
 [M::mem_pestat] skip orientation RF as there are not enough pairs
 [M::mem_pestat] skip orientation RR as there are not enough pairs
-[M::mem_process_seqs] Processed 1446 reads in 0.483 CPU sec, 0.245 real sec
+[M::mem_process_seqs] Processed 1446 reads in 0.356 CPU sec, 0.187 real sec
 [main] Version: 0.7.13-r1126
-[main] CMD: ./bwa mem -t 2 -M /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/genomes//danRer7/danRer7.fa /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_1/Output//3_RepairedReads/Pool-4-Run129_S4_pls3_sorted_remdup_rg_1.fastq.gz /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_1/Output//3_RepairedReads/Pool-4-Run129_S4_pls3_sorted_remdup_rg_2.fastq.gz
-[main] Real time: 9.403 sec; CPU: 4.596 sec
+[main] CMD: ./bwa mem -t 2 -M /home/akboel/BATCH-GE/genomes//danRer7/danRer7.fa /home/akboel/BATCH-GE/_EXAMPLE_1/Output2//3_RepairedReads/Pool-4-Run129_S4_pls3_sorted_remdup_rg_1.fastq.gz /home/akboel/BATCH-GE/_EXAMPLE_1/Output2//3_RepairedReads/Pool-4-Run129_S4_pls3_sorted_remdup_rg_2.fastq.gz
+[main] Real time: 23.309 sec; CPU: 3.304 sec

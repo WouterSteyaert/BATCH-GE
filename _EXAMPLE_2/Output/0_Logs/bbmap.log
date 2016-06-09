@@ -1,5 +1,5 @@
-java -ea -Xmx5520m -cp /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/bbmap/current/ jgi.SplitPairsAndSingles rp --overwrite=t in1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz in2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz out1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz out2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz
-Executing jgi.SplitPairsAndSingles [rp, --overwrite=t, in1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz, in2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz, out1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz, out2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz]
+java -ea -Xmx2160m -cp /home/akboel/BATCH-GE/bbmap/current/ jgi.SplitPairsAndSingles rp --overwrite=t in1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz in2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz out1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz out2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz
+Executing jgi.SplitPairsAndSingles [rp, --overwrite=t, in1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz, in2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz, out1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R1_001.fastq.gz, out2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-52-Run133_S52_L001_R2_001.fastq.gz]
 
 Set INTERLEAVED to false
 Started output stream.
@@ -9,11 +9,11 @@ Result:                 	657471 reads (100.00%) 	78308841 bases (100.00%)
 Pairs:                  	657452 reads (100.00%) 	78306294 bases (100.00%)
 Singletons:             	19 reads (0.00%) 	2547 bases (0.00%)
 
-Time:   			3.964 seconds.
-Reads Processed:        657k 	165.88k reads/sec
-Bases Processed:      78308k 	19.76m bases/sec
-java -ea -Xmx5531m -cp /home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/bbmap/current/ jgi.SplitPairsAndSingles rp --overwrite=t in1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz in2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz out1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz out2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz
-Executing jgi.SplitPairsAndSingles [rp, --overwrite=t, in1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz, in2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz, out1=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz, out2=/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz]
+Time:   			4.582 seconds.
+Reads Processed:        657k 	143.48k reads/sec
+Bases Processed:      78308k 	17.09m bases/sec
+java -ea -Xmx2165m -cp /home/akboel/BATCH-GE/bbmap/current/ jgi.SplitPairsAndSingles rp --overwrite=t in1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz in2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz out1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz out2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz
+Executing jgi.SplitPairsAndSingles [rp, --overwrite=t, in1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz, in2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//2_QualityFilteredReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz, out1=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R1_001.fastq.gz, out2=/home/akboel/BATCH-GE/_EXAMPLE_2/Output2//3_RepairedReads/Pool-53-Run133_S53_L001_R2_001.fastq.gz]
 
 Set INTERLEAVED to false
 Started output stream.
@@ -23,6 +23,6 @@ Result:                 	548760 reads (100.00%) 	66322936 bases (100.00%)
 Pairs:                  	548744 reads (100.00%) 	66320789 bases (100.00%)
 Singletons:             	16 reads (0.00%) 	2147 bases (0.00%)
 
-Time:   			5.924 seconds.
-Reads Processed:        548k 	92.63k reads/sec
-Bases Processed:      66322k 	11.20m bases/sec
+Time:   			4.152 seconds.
+Reads Processed:        548k 	132.18k reads/sec
+Bases Processed:      66322k 	15.97m bases/sec
