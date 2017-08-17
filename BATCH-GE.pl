@@ -439,6 +439,8 @@ sub CollectCutSiteReadsAndProcess {
 
 	unless 	(-d "$Outputdir\/5_CutSiteReads/")		{system("mkdir -p $Outputdir\/5_CutSiteReads/");}
 	
+	chdir ($SAMTOOLSBINDIRECTORY);
+	
 	system 	("./samtools view -b -L  $CutSitesFileForSampleFile $Outputdir\/4_Mappings/$AmBasis\.bam > $Outputdir\/5_CutSiteReads/$CutAmBasis\.bam");
 	
 	### SortSam ###
