@@ -85,7 +85,7 @@ repair() {
 		module load oracle-jdk/1.7_64bit
 		module load pigz
 	fi
-	local CMD="java $EA $z -cp $CP jgi.SplitPairsAndSingles rp $@"
+	local CMD="../jre1.8.0_91/bin/java $EA $z -cp $CP jgi.SplitPairsAndSingles rp $@"
 	echo $CMD >&2
 	eval $CMD
 }

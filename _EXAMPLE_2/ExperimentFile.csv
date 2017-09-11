@@ -1,2 +1,2 @@
-FastqDir;SampleNumbers;Genome;CutSite;OutputDir;CutSitesFile;RepairSequence
-/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Fastq/;52,53;danRer7;pls3;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/Output/;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE-Pub/_EXAMPLE_2/ZebrafishCutsites.bed;(G)TG(C)CACGTGGT(G)AA(T)ATTGGAGC[A];
+FastqDir;SampleNumbers;Genome;CutSite;OutputDir;CutSitesFile;RepairSequence;
+/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_2/Fastq/;52,53;danRer7;pls3;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_2/Output/;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_2/ZebrafishCutsites.bed;(G)TG(C)CACGTGGT(G)AA(T)ATTGGAGC[A];
