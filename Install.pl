@@ -51,9 +51,13 @@ if (-d $WebAccFolder){
 
 my $EXAMPLE_1_EXPERIMENT_FILE 	= $PREFIX . "/_EXAMPLE_1/" . "ExperimentFile.csv";
 my $EXAMPLE_2_EXPERIMENT_FILE 	= $PREFIX . "/_EXAMPLE_2/" . "ExperimentFile.csv";
+my $EXAMPLE_3_EXPERIMENT_FILE 	= $PREFIX . "/_EXAMPLE_3/" . "ExperimentFile.csv";
+my $EXAMPLE_4_EXPERIMENT_FILE 	= $PREFIX . "/_EXAMPLE_4/" . "ExperimentFile.csv";
 
 ChangePrefix($EXAMPLE_1_EXPERIMENT_FILE);
 ChangePrefix($EXAMPLE_2_EXPERIMENT_FILE);
+ChangePrefix($EXAMPLE_3_EXPERIMENT_FILE);
+ChangePrefix($EXAMPLE_4_EXPERIMENT_FILE);
 
 ###################################################################################
 ### 	  	 				    	INSTALL BWA    	 	 						###
