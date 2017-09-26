@@ -117,6 +117,20 @@ sub ChangePrefix {
 
 						print EXP "$EXP_FILE_VALUE\;";
 						
+					}
+					elsif 	($EXPERIMENT_FILE_PATH =~ m/_EXAMPLE_3/){
+						
+						$EXP_FILE_VALUE =~ s/.*\/_EXAMPLE_3/$PREFIX\/_EXAMPLE_3/g;
+
+						print EXP "$EXP_FILE_VALUE\;";
+						
+					}
+					elsif 	($EXPERIMENT_FILE_PATH =~ m/_EXAMPLE_4/){
+						
+						$EXP_FILE_VALUE =~ s/.*\/_EXAMPLE_4/$PREFIX\/_EXAMPLE_4/g;
+
+						print EXP "$EXP_FILE_VALUE\;";
+						
 					}					
 				}
 			}
