@@ -1,2 +1,2 @@
-FastqDir;SampleNumbers;Genome;CutSite;OutputDir;CutSitesFile;RepairSequence
+FastqDir;SampleNumbers;Genome;CutSite;OutputDir;CutSitesFile;RepairSequence;
 /home/wsteyaer/FORD/Xenopus/Chapter/_EXAMPLE_4/Fastq/;3;xenTro3;wnt3av2;/home/wsteyaer/FORD/Xenopus/Chapter/_EXAMPLE_4/Output/;/home/wsteyaer/FORD/Xenopus/Chapter/_EXAMPLE_4/XenopusCutsites.bed;
