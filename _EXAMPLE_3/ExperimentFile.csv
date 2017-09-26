@@ -1,2 +1,2 @@
 FastqDir;SampleNumbers;Genome;CutSite;OutputDir;CutSitesFile;RepairSequence;
-/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_3/Fastq/;2;xenTro3;wnt3v2;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_3/Output/;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/XenopusCutsites.bed;
+/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_3/Fastq/;2;xenTro3;wnt3v2;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_3/Output/;/home/wsteyaer/_Scripts/ScriptsInDevelopment/BATCH-GE/_EXAMPLE_4/XenopusCutsites.bed;
