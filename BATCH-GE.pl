@@ -102,6 +102,7 @@ while (<EXP>){
 	my 	$OutputDir			= "/";
 	my 	$CutSitesFile		= "/";
 	my 	$RepairSequence		= "";
+	my  $FilterIntegration 	= "no";
 
 	if ($LineNr == 0){
 		
@@ -137,7 +138,10 @@ while (<EXP>){
 			
 		if (exists $FileHeaders{"RepairSequence"} 	&& exists $LineValues[$FileHeaders{"RepairSequence"}])					
 			{$RepairSequence 		= $LineValues[$FileHeaders{"RepairSequence"}];}				else{$RepairSequence 	= "";}
-			
+		if (exists $FileHeaders{"FilterIntegration"} && exists $LineValues[$FileHeaders{"FilterIntegration"}])					
+			{$FilterIntegration 	= $LineValues[$FileHeaders{"FilterIntegration"}];}			else{$FilterIntegration = "no";}
+
+		
 		### Check genome ###
 		
 		if (! -f "$PREFIX\/genomes/$Genome\/$Genome\.fa"){
@@ -151,7 +155,7 @@ while (<EXP>){
 		
 			if ($FastqDir ne "/" && $SampleNumbers ne "/" && $Genome ne "/" && $CutSite ne "/" && $OutputDir ne "/" && $CutSitesFile ne "/"){
 			
-				$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$CutSitesFile}{$CutSite} = "$RepairSequence";
+				$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$FilterIntegration}{$CutSitesFile}{$CutSite} = "$RepairSequence";
 			
 			}
 		}
@@ -168,100 +172,104 @@ foreach my $FastqDir (sort keys %ExperimentFile){
 	foreach my $SampleNumber (sort keys %{$ExperimentFile{$FastqDir}}){
 		foreach my $Genome 		(sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}}){		
 			foreach my $OutputDir (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}}){
-							
-				# The OutputDir and all of its content will be deleted unless this OutputDir is already used in the same Experiment file. 	#
-				# If so, the efficiency file and the variant file are extended with the new analysis, the previous results won't be deleted	#
+				foreach my $FilterIntegration (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}}){
 				
-				unless 	(-d $OutputDir)						{system ("mkdir -p $OutputDir");}
-				if 		(!exists $OutputDirs{$OutputDir})	{CleanUpLogAndOutput ($OutputDir);}
-				
-				$OutputDirs{$OutputDir} = undef;
-				
-				my $EfficiencyFile 				= 	"$OutputDir\/Efficiencies.txt";
-				my $VariantFile					= 	"$OutputDir\/Variants.txt";
-				my $RepairFile 					= 	"$OutputDir\/RepairReport.txt";
-				my $CutSitesFileForSampleFile 	= 	"$OutputDir\/CutSitesPool\.bed";
-				my $CutSitesFileForSampleString	= 	"";
-									
-				open EFF, 				">>$EfficiencyFile" 			or die ("Can't open $EfficiencyFile\n");
-				open VAR, 				">>$VariantFile" 				or die ("Can't open $VariantFile\n");										
-				open SPECIFIC_CUTSITES, ">$CutSitesFileForSampleFile" 	or die ("Can't open $CutSitesFileForSampleFile\n");
-				
-				print 					"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
-				print 	EFF				"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
-				print 	VAR				"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
-				print 					"\t[Genome=$Genome\]\n\n";
-				print 	EFF				"\t[Genome=$Genome\]\n";
-				print 	VAR				"\t[Genome=$Genome\]\n";
-				
-				# Write the cutsites for this particular sample to a new temporary bed file. The coordinate of the cutsites can be stored in	#
-				# several cutsitesfiles. The new bed file will be used later to create a smaller bam file for further processing.				#
-
-				foreach my $CutSitesFile (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}}){
-									
-					my $CutSitesAllRef = ReadInCutSitesFile ($CutSitesFile);	# Read in Cutsitesfile #
-
-					foreach my $CutSite (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$CutSitesFile}}){
+					# The OutputDir and all of its content will be deleted unless this OutputDir is already used in the same Experiment file. 	#
+					# If so, the efficiency file and the variant file are extended with the new analysis, the previous results won't be deleted	#
 					
-						$CutSitesFileForSampleString .= $CutSite . "~";
+					unless 	(-d $OutputDir)						{system ("mkdir -p $OutputDir");}
+					if 		(!exists $OutputDirs{$OutputDir})	{CleanUpLogAndOutput ($OutputDir);}
+					
+					$OutputDirs{$OutputDir} = undef;
+					
+					my $EfficiencyFile 				= 	"$OutputDir\/Efficiencies.txt";
+					my $VariantFile					= 	"$OutputDir\/Variants.txt";
+					my $RepairFile 					= 	"$OutputDir\/RepairReport.txt";
+					my $CutSitesFileForSampleFile 	= 	"$OutputDir\/CutSitesPool\.bed";
+					my $CutSitesFileForSampleString	= 	"";
+										
+					open EFF, 				">>$EfficiencyFile" 			or die ("Can't open $EfficiencyFile\n");
+					open VAR, 				">>$VariantFile" 				or die ("Can't open $VariantFile\n");										
+					open SPECIFIC_CUTSITES, ">$CutSitesFileForSampleFile" 	or die ("Can't open $CutSitesFileForSampleFile\n");
+					
+					print 					"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
+					print 	EFF				"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
+					print 	VAR				"\n\tSample number $SampleNumber from $FastqDir is being analyzed ...\n";
+					print 					"\t[Genome=$Genome\]\n\n";
+					print 	EFF				"\t[Genome=$Genome\]\n";
+					print 	VAR				"\t[Genome=$Genome\]\n";
+					
+					# Write the cutsites for this particular sample to a new temporary bed file. The coordinate of the cutsites can be stored in	#
+					# several cutsitesfiles. The new bed file will be used later to create a smaller bam file for further processing.				#
 
-						if ($CutSitesAllRef->{$CutSite} && $ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$CutSitesFile}{$CutSite}){	
+					foreach my $CutSitesFile (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$FilterIntegration}}){
+										
+						my $CutSitesAllRef = ReadInCutSitesFile ($CutSitesFile);	# Read in Cutsitesfile #
+
+						foreach my $CutSite (sort keys %{$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$FilterIntegration}{$CutSitesFile}}){
 						
-							(my $CutSiteChr, my $CutSiteStart, my $CutSiteStop) 			= split ("_", $CutSitesAllRef->{$CutSite});
+							$CutSitesFileForSampleString .= $CutSite . "~";
+
+
+							if ($CutSitesAllRef->{$CutSite} && $ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$FilterIntegration}{$CutSitesFile}{$CutSite}){	
 							
-							print SPECIFIC_CUTSITES "$CutSiteChr\t$CutSiteStart\t$CutSiteStop\t$CutSite\;RepairSequence=$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$CutSitesFile}{$CutSite}\n";
-						}
-						elsif ($CutSitesAllRef->{$CutSite}){
+								(my $CutSiteChr, my $CutSiteStart, my $CutSiteStop) 			= split ("_", $CutSitesAllRef->{$CutSite});
+								
+								print SPECIFIC_CUTSITES "$CutSiteChr\t$CutSiteStart\t$CutSiteStop\t$CutSite\;RepairSequence=$ExperimentFile{$FastqDir}{$SampleNumber}{$Genome}{$OutputDir}{$FilterIntegration}{$CutSitesFile}{$CutSite}\n";
+							}
+							elsif ($CutSitesAllRef->{$CutSite}){
+								
+								(my $CutSiteChr, my $CutSiteStart, my $CutSiteStop) 			= split ("_", $CutSitesAllRef->{$CutSite});
+								
+								print SPECIFIC_CUTSITES "$CutSiteChr\t$CutSiteStart\t$CutSiteStop\t$CutSite\n";
 							
-							(my $CutSiteChr, my $CutSiteStart, my $CutSiteStop) 			= split ("_", $CutSitesAllRef->{$CutSite});
-							
-							print SPECIFIC_CUTSITES "$CutSiteChr\t$CutSiteStart\t$CutSiteStop\t$CutSite\n";
-						
-						}
-						else {
-							die ("CutSite $CutSite should be defined in your CutSitesFile: $CutSitesFile\n");
+							}
+							else {
+								die ("CutSite $CutSite should be defined in your CutSitesFile: $CutSitesFile\n");
+							}
 						}
 					}
+					close SPECIFIC_CUTSITES;
+					
+					$CutSitesFileForSampleString =~ s/~$//g;
+					
+					################################################################################################
+					# 									Process Sequencing Reads								   #
+					################################################################################################
+
+					my $CopiedFilesRef 					= 	CopyFiles						($FastqDir, $SampleNumber, $OutputDir);
+															TrimReadsOnQuality				($OutputDir, $CopiedFilesRef);										
+															RepairReads						($OutputDir, $CopiedFilesRef, $LOCATION_BBMAP);						
+					my $AmBasis							=	MapReadsToReference				($Genome, $OutputDir, $CopiedFilesRef, $GENOMES_MAINFOLDER);
+					
+					
+					my $CutAmBasis						=	CollectCutSiteReadsAndProcess	($FastqDir, 
+																							$SampleNumber, 
+																							$Genome, 
+																							$OutputDir, 
+																							$AmBasis, 
+																							$CutSitesFileForSampleFile,
+																							$LOCATION_BAMTOUCSCSCRIPT, 
+																							$CutSitesFileForSampleString,
+																							$PICARD_INSTALLATION,
+																							$JAVA_INSTALLATION,
+																							$GENOMES_MAINFOLDER,
+																							$WEBACC);
+					(my $ConflictReadPairsRef, 
+					 my $FilteredReadsRef, 
+					 my $CutSiteReadGroupsRef) 			=	AnalyzeSAM						($FastqDir, 
+																							 $SampleNumber, 
+																							 $Genome, 
+																							 $OutputDir,
+																							 $CutAmBasis,
+																							 $CutSitesFileForSampleFile,
+																							 $RepairFile,
+																							 $FilterIntegration);															
+															CleanUpFolders					($OutputDir, $CutSitesFileForSampleFile);
+
+					close EFF;
+					close VAR;
 				}
-				close SPECIFIC_CUTSITES;
-				
-				$CutSitesFileForSampleString =~ s/~$//g;
-				
-				################################################################################################
-				# 									Process Sequencing Reads								   #
-				################################################################################################
-
-				my $CopiedFilesRef 					= 	CopyFiles						($FastqDir, $SampleNumber, $OutputDir);
-														TrimReadsOnQuality				($OutputDir, $CopiedFilesRef);										
-														RepairReads						($OutputDir, $CopiedFilesRef, $LOCATION_BBMAP);						
-				my $AmBasis							=	MapReadsToReference				($Genome, $OutputDir, $CopiedFilesRef, $GENOMES_MAINFOLDER);
-				
-				
-				my $CutAmBasis						=	CollectCutSiteReadsAndProcess	($FastqDir, 
-																						$SampleNumber, 
-																						$Genome, 
-																						$OutputDir, 
-																						$AmBasis, 
-																						$CutSitesFileForSampleFile,
-																						$LOCATION_BAMTOUCSCSCRIPT, 
-																						$CutSitesFileForSampleString,
-																						$PICARD_INSTALLATION,
-																						$JAVA_INSTALLATION,
-																						$GENOMES_MAINFOLDER,
-																						$WEBACC);
-				(my $ConflictReadPairsRef, 
-				 my $FilteredReadsRef, 
-				 my $CutSiteReadGroupsRef) 			=	AnalyzeSAM						($FastqDir, 
-																						 $SampleNumber, 
-																						 $Genome, 
-																						 $OutputDir, 
-																						 $CutAmBasis,
-																						 $CutSitesFileForSampleFile,
-																						 $RepairFile);															
-														CleanUpFolders					($OutputDir, $CutSitesFileForSampleFile);
-
-				close EFF;
-				close VAR;
 			}				
 		}
 	}
@@ -480,7 +488,7 @@ sub AnalyzeSAM {
 	
 	print 		"\t\t\tAnalyzeSAM\n";
 	
-	(my $FastqDir, my $SampleNumber, my $Genome, my $Outputdir, my $CutAmBasis, my $CutSitesFileForSampleFile, my $RepairFile) = @_;
+	(my $FastqDir, my $SampleNumber, my $Genome, my $Outputdir, my $CutAmBasis, my $CutSitesFileForSampleFile, my $RepairFile, my $FilterIntegration) = @_;
 	 
 	 my $FilteredReadPairsRef				= {};
 	 my $NrOfFilteredReadsRef				= {};
@@ -492,6 +500,8 @@ sub AnalyzeSAM {
 	 my $RepairSequencesInIndelsRef			= {};
 	 my $RepairSequencesIndelsConflictsRef	= {};
 	 my $InDelsRef							= {};
+	 my $ReadSequences						= {};
+	 my $FilterIntegrationThreshold			= 10;
 	 
 	#############################################
 	### 	  Read in Cut Sites For Pool	  ###
@@ -526,10 +536,17 @@ sub AnalyzeSAM {
 	### 		     Go over SAM			  ###
 	#############################################
 	
+	open SAM_PASS, ">$Outputdir\/5_CutSiteReads/$CutAmBasis\.remdup.rg.pass.sam" or die ("Can't open $Outputdir\/5_CutSiteReads/$CutAmBasis\.remdup.rg.pass.sam\n");
+	open SAM_FI, ">$Outputdir\/5_CutSiteReads/$CutAmBasis\.remdup.rg.filtint.sam" or die ("Can't open $Outputdir\/5_CutSiteReads/$CutAmBasis\.remdup.rg.filtint.sam\n");
 	open SAM, "$Outputdir\/5_CutSiteReads/$CutAmBasis\.sorted.remdup.rg.sam" or die ("Can't open $Outputdir\/5_CutSiteReads/$CutAmBasis\.sorted.remdup.rg.sam\n");
 	while (<SAM>){
 	
-		next if ($_ =~ m/^\@/);
+		if ($_ =~ m/^\@/){
+			
+			print SAM_PASS $_;
+			print SAM_FI $_;
+			next;
+		}
 			
 		my 	$Line 				= $_;
 			$Line 				=~ s/\n//g;
@@ -550,6 +567,8 @@ sub AnalyzeSAM {
 					#(($ReadStart) >= $RegionStart && ($ReadStart) <= $RegionStop)){								between read and cutsite - we dont use this
 					
 					if (($ReadStart) <= $RegionStart && $ReadStop >= $RegionStop){											# 	This condition states that the cutsite region is
+					
+						$ReadSequences->{$ReadPairName}{$Line} = undef;
 																															# 	fully part of the read - read goes fully throug it
 						if 	(exists $NrOfFilteredReadsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}})		# 	Determine total number of reads - total means that		
 							{$NrOfFilteredReadsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}++;}			# 	the possible conflicts not yet excluded
@@ -559,14 +578,15 @@ sub AnalyzeSAM {
 						
 						$FilteredReadPairsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{$ReadPairName} = undef;
 						
+						my 	$CigarRef	 	= SplitCigar($Cigar);
+						my 	@Cigar			= @$CigarRef;
+						
+						my $IntegrationRead = 0;
 						if ($Cigar =~ m/[N|P|X]/g){die("$_");}
 						if ($Cigar =~ m/[D|I]/g){																# 	Read with INDEL - but not necessary in cutsiteregion 	#
-																												# 	Thus, the position of the INDEL needs to be checked		#
-							
+																												# 	Thus, the position of the INDEL needs to be checked		#							
 							my	$IndelInCutSite = "no";										
 							my 	$PositionInRead	= $ReadStart;
-							my 	$CigarRef	 	= SplitCigar($Cigar);
-							my 	@Cigar			= @$CigarRef;
 
 							for (my $I = 0; $I < scalar @Cigar; $I+=2){
 								
@@ -576,6 +596,7 @@ sub AnalyzeSAM {
 										($PositionInRead >= $RegionStart && $PositionInRead <= $RegionStop)){									# I/D starts after RegionStart 	#
 														
 										if (!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"NO_INDEL"}{$ReadPairName} &&
+											!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INTEGRATION"}{$ReadPairName} &&
 											!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName}){
 										
 											$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName} = undef;
@@ -598,12 +619,12 @@ sub AnalyzeSAM {
 							
 							if ($IndelInCutSite eq "no"){																								# Check Status #
 							
-								 ($CutSiteReadGroupsRef, $ConflictReadPairsRef) 	= StoreAsNoIndelOrRepair ($CutSiteReadGroupsRef, $RepairSequenceRef, $CutSitesPoolRef, $ConflictReadPairsRef, $ReadChr, $RegionStart, $RegionStop, $ReadPairName, $Sequence, $PossibleRepairSequencesRef);	
+								 ($CutSiteReadGroupsRef, $ConflictReadPairsRef) 	= StoreAsNoIndelOrRepair ($CutSiteReadGroupsRef, $RepairSequenceRef, $CutSitesPoolRef, $ConflictReadPairsRef, $ReadChr, $RegionStart, $RegionStop, $ReadPairName, $Sequence, $PossibleRepairSequencesRef, $FilterIntegration, $FilterIntegrationThreshold, $CigarRef);	
 							}
 						}
 						else { 																															# Read without INDEL #
 							
-							($CutSiteReadGroupsRef, $ConflictReadPairsRef) 			= StoreAsNoIndelOrRepair ($CutSiteReadGroupsRef, $RepairSequenceRef, $CutSitesPoolRef, $ConflictReadPairsRef, $ReadChr, $RegionStart, $RegionStop, $ReadPairName, $Sequence, $PossibleRepairSequencesRef);	
+							($CutSiteReadGroupsRef, $ConflictReadPairsRef) 			= StoreAsNoIndelOrRepair ($CutSiteReadGroupsRef, $RepairSequenceRef, $CutSitesPoolRef, $ConflictReadPairsRef, $ReadChr, $RegionStart, $RegionStop, $ReadPairName, $Sequence, $PossibleRepairSequencesRef, $FilterIntegration, $FilterIntegrationThreshold, $CigarRef);	
 							
 						}
 					}
@@ -631,6 +652,9 @@ sub AnalyzeSAM {
 			}
 			elsif (exists $CutSiteReadGroupsRef->{$CutSite}{"REPAIR"}{$ReadPairName}){
 				delete $CutSiteReadGroupsRef->{$CutSite}{"REPAIR"}{$ReadPairName};
+			}
+			elsif (exists $CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"}{$ReadPairName}){
+				delete $CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"}{$ReadPairName};
 			}
 			
 			### Remove in InDels ###
@@ -668,6 +692,48 @@ sub AnalyzeSAM {
 	}
 	
 	#############################################
+	### 		   	 Write Out Sam 		  	  ###
+	#############################################
+	
+	foreach my $CutSite (keys %$ConflictReadPairsRef){
+	
+		foreach my $ReadPairName (keys %{$CutSiteReadGroupsRef->{$CutSite}{"INDEL"}}){
+		
+			foreach my $SamLine (keys %{$ReadSequences->{$ReadPairName}}){
+					
+				print SAM_PASS $SamLine . "\n";
+			}
+		}
+		
+		foreach my $ReadPairName (keys %{$CutSiteReadGroupsRef->{$CutSite}{"NO_INDEL"}}){
+		
+			foreach my $SamLine (keys %{$ReadSequences->{$ReadPairName}}){
+					
+				print SAM_PASS $SamLine . "\n";
+			}
+		}
+		
+		foreach my $ReadPairName (keys %{$CutSiteReadGroupsRef->{$CutSite}{"REPAIR"}}){
+		
+			foreach my $SamLine (keys %{$ReadSequences->{$ReadPairName}}){
+					
+				print SAM_PASS $SamLine . "\n";
+			}
+		}
+		
+		foreach my $ReadPairName (keys %{$CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"}}){
+		
+			foreach my $SamLine (keys %{$ReadSequences->{$ReadPairName}}){
+					
+				print SAM_FI $SamLine . "\n";
+			}
+		}
+	}
+	
+	close SAM_FI;
+	close SAM_PASS;
+	
+	#############################################
 	### 	     Write out efficiency		  ###
 	#############################################
 	
@@ -677,10 +743,14 @@ sub AnalyzeSAM {
 		print 	EFF		"\t[Cutsite=$CutSite\]\n";
 		print 	VAR		"\t[Cutsite=$CutSite\]\n";
 	
+		my 	$Excluded		= 	0;
+			$Excluded		=	scalar keys $CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"} 	if ($CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"});
 		my 	$Nondels 		= 	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"NO_INDEL"}};
 			$Nondels		+=	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"REPAIR"}} if ($CutSiteReadGroupsRef->{$CutSite}{"REPAIR"});
 		my 	$Indels			=	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"INDEL"}};
 		my 	$Efficiency		= Round($Indels/($Indels + $Nondels));
+		print 		"\n\t\t\t\t$Excluded readpairs with integration were excluded\n";
+		print EFF	"\n\t\t\t\t$Excluded readpairs with integration were excluded\n";
 		
 		print 		"\n\t\t\t\tMutagenesis efficiency for $CutSite is $Efficiency ($Indels readpairs with indel(s) versus $Nondels readpairs without indel(s))\n";		
 		print EFF 	"\n\t\t\t\tMutagenesis efficiency for $CutSite is $Efficiency ($Indels readpairs with indel(s) versus $Nondels readpairs without indel(s))\n";
@@ -1053,15 +1123,16 @@ sub DetermineAndStoreIndelCoordinate {
 
 sub StoreAsNoIndelOrRepair {
 									
-	(my $CutSiteReadGroupsRef, my $RepairSequenceRef, my $CutSitesPoolRef, my $ConflictReadPairsRef, my $ReadChr, my $RegionStart, my $RegionStop, my $ReadPairName, my $Sequence, my $PossibleRepairSequencesRef) = @_;
+	(my $CutSiteReadGroupsRef, my $RepairSequenceRef, my $CutSitesPoolRef, my $ConflictReadPairsRef, my $ReadChr, my $RegionStart, my $RegionStop, my $ReadPairName, my $Sequence, my $PossibleRepairSequencesRef, my $FilterIntegration, my $FilterIntegrationThreshold, my $CigarRef) = @_;
 	
-	if 		($RepairSequenceRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}){							# This cutsite has repairsite
+	if 		($RepairSequenceRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}){							# This cutsite has repairsite in experiment file
 	
 		my $RepairSequence 	= $RepairSequenceRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}};
 		my @RepairSequences	= ();
 	
-		foreach my $PossibleRepairSequence (keys %{$PossibleRepairSequencesRef->{$RepairSequence}}){
-				
+		foreach my $PossibleRepairSequence (keys $PossibleRepairSequencesRef->{$RepairSequence}){
+
+						
 			my 	$PossibleRepairSequenceRC 	= reverse ($PossibleRepairSequence);
 				$PossibleRepairSequenceRC 	=~ tr/ACGTacgt/TGCAtgca/;
 			my 	$PossibleRepairSequenceQM	= quotemeta ($PossibleRepairSequence);
@@ -1073,31 +1144,52 @@ sub StoreAsNoIndelOrRepair {
 			}
 		}
 
-		if	(!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName} 		&&
-			 !exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName}		&&
+		if	(!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName} 			&&
+			 !exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName}			&&
+			 !exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INTEGRATION"}{$ReadPairName}		&&
 			 !@RepairSequences){
 		
 			$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"NO_INDEL"}{$ReadPairName} = undef;
 		}
-		elsif 	(!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName} 		&&
-				 !exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"NO_INDEL"}{$ReadPairName} 	&&
+		elsif 	(!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName} 				&&
+				 !exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"NO_INDEL"}{$ReadPairName} 			&&
 				 scalar @RepairSequences == 1){
 				 
-			$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName} = $RepairSequences[0];
-		
+			 my @Cigar = @$CigarRef;
+			 
+			 if (!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INTEGRATION"}{$ReadPairName}		&&
+				(($Cigar[0] < $FilterIntegrationThreshold || ($Cigar[1] ne "S" && $Cigar[1] ne "H")) 		&&
+				 ($Cigar[-2] < $FilterIntegrationThreshold || ($Cigar[-1] ne "S" && $Cigar[-1] ne "H"))) 									||
+				$FilterIntegration eq "no"){
+				
+				$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName} = $RepairSequences[0];
+
+			 
+			 }
+			 if (!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"REPAIR"}{$ReadPairName} 		&&
+					(($Cigar[0] >= $FilterIntegrationThreshold && ($Cigar[1] eq "S" || $Cigar[1] eq "H")) 	||
+					($Cigar[-2] >= $FilterIntegrationThreshold && ($Cigar[-1] eq "S" || $Cigar[-1] eq "H")))							&&
+					$FilterIntegration eq "yes"){
+				
+				$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INTEGRATION"}{$ReadPairName} = undef;
+			 
+			 }
 		}
 		else {
-		
+
+				
 			$ConflictReadPairsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{$ReadPairName} = undef;
+			
 		}
 	}
 	elsif (!exists $CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"INDEL"}{$ReadPairName}) {
 	
 		$CutSiteReadGroupsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{"NO_INDEL"}{$ReadPairName} = undef;
+			
 	}
 	else {
 	
-		$ConflictReadPairsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{$ReadPairName} = undef;
+		$ConflictReadPairsRef->{$CutSitesPoolRef->{$ReadChr}{$RegionStart}{$RegionStop}}{$ReadPairName} = undef;	
 	}
 	
 	return $CutSiteReadGroupsRef, $ConflictReadPairsRef;
