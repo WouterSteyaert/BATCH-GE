@@ -747,10 +747,11 @@ sub AnalyzeSAM {
 			$Excluded		=	scalar keys $CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"} 	if ($CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"});
 		my 	$Nondels 		= 	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"NO_INDEL"}};
 			$Nondels		+=	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"REPAIR"}} if ($CutSiteReadGroupsRef->{$CutSite}{"REPAIR"});
+			$Nondels		+=	scalar keys $CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"} 	if ($CutSiteReadGroupsRef->{$CutSite}{"INTEGRATION"});
 		my 	$Indels			=	scalar keys %{$CutSiteReadGroupsRef->{$CutSite}{"INDEL"}};
 		my 	$Efficiency		= Round($Indels/($Indels + $Nondels));
-		print 		"\n\t\t\t\t$Excluded readpairs with integration were excluded\n";
-		print EFF	"\n\t\t\t\t$Excluded readpairs with integration were excluded\n";
+		print 		"\n\t\t\t\t$Excluded readpairs with integration\n";
+		print EFF	"\n\t\t\t\t$Excluded readpairs with integration\n";
 		
 		print 		"\n\t\t\t\tMutagenesis efficiency for $CutSite is $Efficiency ($Indels readpairs with indel(s) versus $Nondels readpairs without indel(s))\n";		
 		print EFF 	"\n\t\t\t\tMutagenesis efficiency for $CutSite is $Efficiency ($Indels readpairs with indel(s) versus $Nondels readpairs without indel(s))\n";
